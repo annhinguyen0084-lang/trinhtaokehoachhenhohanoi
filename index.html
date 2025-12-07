@@ -5,9 +5,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hẹn hò tại Hà Nội — Tạo kế hoạch</title>
-  <link rel="icon" type="image/jpeg" href="logo.jpg?v=1" />
-  <link rel="shortcut icon" type="image/jpeg" href="logo.jpg?v=1" />
-  <link rel="apple-touch-icon" href="logo.jpg?v=1" />
+  <link rel="icon" type="image/jpeg" href="./logo.jpg?v=2" />
+  <link rel="shortcut icon" type="image/jpeg" href="./logo.jpg?v=2" />
+  <link rel="apple-touch-icon" href="./logo.jpg?v=2" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;600;700&display=swap');
 
@@ -975,9 +975,9 @@
     // Danh sách địa điểm (Global) - Updated with new details
     const places = {
       'Văn hóa': [
-        { name: 'Văn Miếu - Quốc Tử Giám', img: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800&q=80', desc: 'Di tích lịch sử văn hóa nổi tiếng', price: '30.000đ/vé', concept: 'Cổ kính, trang nghiêm', style: 'Tham quan, chụp ảnh' },
-        { name: 'Nhà hát Múa rối nước Thăng Long', img: 'https://images.unsplash.com/photo-1580477667995-2b94f01c9516?w=800&q=80', desc: 'Trải nghiệm nghệ thuật truyền thống độc đáo', price: '100.000đ - 200.000đ/vé', concept: 'Nghệ thuật dân gian', style: 'Giải trí, văn hóa' },
-        { name: 'Lăng Chủ tịch Hồ Chí Minh', img: 'https://images.unsplash.com/photo-1528127269322-539801943592?w=800&q=80', desc: 'Di tích lịch sử quan trọng, không gian trang nghiêm', price: 'Miễn phí (người Việt)', concept: 'Trang nghiêm, lịch sử', style: 'Tham quan' },
+        { name: 'Văn Miếu - Quốc Tử Giám', img: 'vanmieu.jpg', desc: 'Di tích lịch sử văn hóa nổi tiếng', price: '30.000đ/vé', concept: 'Cổ kính, trang nghiêm', style: 'Tham quan, chụp ảnh' },
+        { name: 'Nhà hát Múa rối nước Thăng Long', img: 'nhahatmuaroi.jpg', desc: 'Trải nghiệm nghệ thuật truyền thống độc đáo', price: '100.000đ - 200.000đ/vé', concept: 'Nghệ thuật dân gian', style: 'Giải trí, văn hóa' },
+        { name: 'Lăng Chủ tịch Hồ Chí Minh', img: 'langchutich.webp', desc: 'Di tích lịch sử quan trọng, không gian trang nghiêm', price: 'Miễn phí (người Việt)', concept: 'Trang nghiêm, lịch sử', style: 'Tham quan' },
         { name: 'Chùa Một Cột', img: 'chua1cot.jpg', desc: 'Biểu tượng văn hóa độc đáo của Hà Nội', price: 'Miễn phí', concept: 'Phật giáo, kiến trúc độc đáo', style: 'Tâm linh, tham quan' },
         { name: 'Bảo tàng Dân tộc học Việt Nam', img: 'baotangdantoc.jpg', desc: 'Khám phá văn hóa 54 dân tộc Việt Nam', price: '40.000đ/vé', concept: 'Văn hóa đa dạng', style: 'Học hỏi, khám phá' },
         { name: 'Bảo tàng Lịch sử Quốc gia', img: 'baotanglichsu.jpg', desc: 'Tìm hiểu lịch sử Việt Nam qua các thời kỳ', price: '40.000đ/vé', concept: 'Lịch sử, kiến trúc Pháp', style: 'Tham quan' }
@@ -1024,28 +1024,28 @@
       'Lãng mạn': [
         { name: 'Dạo Hồ Hoàn Kiếm', img: 'dibohoguom.jpg', desc: 'Không gian yên bình, lãng mạn', price: 'Miễn phí', concept: 'Đi bộ, tâm tình', style: 'Nhẹ nhàng' },
         { name: 'Summit Lounge', img: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80', desc: 'View thành phố tuyệt đẹp', price: '200k - 500k', menu: 'Cocktail cao cấp', concept: 'Rooftop sang chảnh', style: 'Sang trọng, hẹn hò' },
-        { name: 'Đi thuyền Hồ Tây', img: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80', desc: 'Ngắm hoàng hôn trên hồ', price: '150k - 300k', concept: 'Thiên nhiên sông nước', style: 'Riêng tư' }
+        { name: 'Đi thuyền Hồ Tây', img: 'thuyenhotay.png', desc: 'Ngắm hoàng hôn trên hồ', price: '150k - 300k', concept: 'Thiên nhiên sông nước', style: 'Riêng tư' }
       ],
       'Thể thao': [
-        { name: 'Đạp xe Hồ Tây', img: 'https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=800&q=80', desc: 'Vận động vui vẻ', price: '50k - 100k/xe', concept: 'Hoạt động ngoài trời', style: 'Khỏe khoắn, thư giãn' },
-        { name: 'Bowling Vincom', img: 'https://images.unsplash.com/photo-1511447333015-45b65e60f6d5?w=800&q=80', desc: 'Hoạt động giải trí vui nhộn', price: '100k - 200k/game', concept: 'Giải trí trong nhà', style: 'Vui vẻ, tranh tài' },
-        { name: 'Bơi lội tại bể bơi', img: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80', desc: 'Vận động toàn thân, mát mẻ', price: '50k - 100k/lượt', concept: 'Thể thao dưới nước', style: 'Khỏe khoắn, giải nhiệt' },
+        { name: 'Đạp xe Hồ Tây', img: 'dapxehotay.jpg', desc: 'Vận động vui vẻ', price: '50k - 100k/xe', concept: 'Hoạt động ngoài trời', style: 'Khỏe khoắn, thư giãn' },
+        { name: 'Bowling Vincom', img: 'bowlingvincom.webp', desc: 'Hoạt động giải trí vui nhộn', price: '100k - 200k/game', concept: 'Giải trí trong nhà', style: 'Vui vẻ, tranh tài' },
+        { name: 'Bơi lội tại bể bơi', img: 'boiloibeboi.webp', desc: 'Vận động toàn thân, mát mẻ', price: '50k - 100k/lượt', concept: 'Thể thao dưới nước', style: 'Khỏe khoắn, giải nhiệt' },
         { name: 'Chơi cầu lông hoặc tennis', img: 'https://images.unsplash.com/photo-1622163642999-9586a0b0d1d0?w=800&q=80', desc: 'Thể thao đối kháng vui vẻ', price: '100k - 200k/sân/giờ', concept: 'Thể thao đối kháng', style: 'Năng động, cạnh tranh' },
         { name: 'Chạy bộ công viên', img: 'https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=800&q=80', desc: 'Vận động nhẹ nhàng, không khí trong lành', price: 'Miễn phí', concept: 'Thể thao ngoài trời', style: 'Khỏe khoắn, thư giãn' }
       ],
       'Shopping': [
         { name: 'Aeon Mall Long Biên', img: 'https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?w=800&q=80', desc: 'Shopping hiện đại', price: 'Tùy chi tiêu', concept: 'Mall Nhật Bản', style: 'Tiện nghi, hiện đại' },
-        { name: 'Phố Hàng Bông', img: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80', desc: 'Mua sắm đồ handmade', price: 'Tùy món', concept: 'Phố nghề lụa', style: 'Tinh tế, truyền thống' },
+        { name: 'Phố Hàng Bông', img: 'phohangbong.jfif', desc: 'Mua sắm đồ handmade', price: 'Tùy món', concept: 'Phố nghề lụa', style: 'Tinh tế, truyền thống' },
         { name: 'Trung tâm thương mại Vincom', img: 'https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?w=800&q=80', desc: 'Shopping center lớn, đa dạng thương hiệu', price: 'Tùy chi tiêu', concept: 'Mall hiện đại', style: 'Sang trọng, đầy đủ' },
         { name: 'Lotte Center', img: 'https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?w=800&q=80', desc: 'Trung tâm thương mại cao cấp', price: 'Tùy chi tiêu', concept: 'Mall cao cấp', style: 'Sang trọng, view đẹp' },
-        { name: 'Phố Hàng Đào', img: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80', desc: 'Phố mua sắm truyền thống, đa dạng', price: 'Tùy món', concept: 'Phố cổ, đa dạng', style: 'Truyền thống, sôi động' },
-        { name: 'Phố Hàng Ngang', img: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80', desc: 'Phố cổ, mua sắm đồ lưu niệm', price: 'Tùy món', concept: 'Phố cổ Hà Nội', style: 'Truyền thống, đặc sắc' }
+        { name: 'Phố Hàng Đào', img: 'phohangdao.webp', desc: 'Phố mua sắm truyền thống, đa dạng', price: 'Tùy món', concept: 'Phố cổ, đa dạng', style: 'Truyền thống, sôi động' },
+        { name: 'Phố Hàng Ngang', img: 'phohangngang.jpg', desc: 'Phố cổ, mua sắm đồ lưu niệm', price: 'Tùy món', concept: 'Phố cổ Hà Nội', style: 'Truyền thống, đặc sắc' }
       ],
       'Thiên nhiên': [
-        { name: 'Công viên Yên Sở', img: 'https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?w=800&q=80', desc: 'Không gian rộng lớn', price: 'Miễn phí vào cửa', concept: 'Cắm trại, picnic', style: 'Xanh mát, thư thái' },
+        { name: 'Công viên Yên Sở', img: 'congvienyenso.jpg', desc: 'Không gian rộng lớn', price: 'Miễn phí vào cửa', concept: 'Cắm trại, picnic', style: 'Xanh mát, thư thái' },
         { name: 'Vườn Bách Thảo', img: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80', desc: 'Không gian xanh yên tĩnh', price: '10k/vé', concept: 'Rừng trong phố', style: 'Yên bình, trong lành' },
         { name: 'Công viên Thủ Lệ', img: 'https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?w=800&q=80', desc: 'Công viên có vườn thú, không gian xanh', price: '30k - 50k/vé', concept: 'Công viên giải trí', style: 'Vui vẻ, thiên nhiên' },
-        { name: 'Hồ Trúc Bạch', img: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=80', desc: 'Hồ đẹp, không gian yên bình', price: 'Miễn phí', concept: 'Hồ nước, thiên nhiên', style: 'Yên tĩnh, lãng mạn' }
+        { name: 'Hồ Trúc Bạch', img: 'hotrucbach.jfif', desc: 'Hồ đẹp, không gian yên bình', price: 'Miễn phí', concept: 'Hồ nước, thiên nhiên', style: 'Yên tĩnh, lãng mạn' }
       ],
       'Giải trí': [
         { name: 'Escape Room', img: 'escaperoom.jpg', desc: 'Thử thách giải đố', price: '150k - 250k/người', concept: 'Trò chơi trí tuệ', style: 'Hồi hộp, kịch tính' },
@@ -1054,7 +1054,7 @@
         { name: 'Billiards', img: 'billiards.jpg', desc: 'Chơi bi-a, giải trí', price: '80k - 150k/bàn/giờ', concept: 'Trò chơi trong nhà', style: 'Tranh tài, thư giãn' },
         { name: 'VR Gaming', img: 'vrgaming.jpg', desc: 'Trải nghiệm thực tế ảo', price: '150k - 300k/người', concept: 'Công nghệ VR', style: 'Hiện đại, hấp dẫn' },
         { name: 'Board Game Cafe', img: 'boardgame.jpg', desc: 'Chơi board game, trò chuyện', price: '50k - 100k/người', menu: 'Cafe, đồ uống', concept: 'Trò chơi bàn cờ', style: 'Vui vẻ, tương tác' },
-        { name: 'Công viên nước', img: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80', desc: 'Vui chơi dưới nước, giải nhiệt', price: '150k - 300k/người', concept: 'Công viên giải trí', style: 'Vui vẻ, mát mẻ' }
+        { name: 'Công viên nước', img: 'congviennuoc.jpg', desc: 'Vui chơi dưới nước, giải nhiệt', price: '150k - 300k/người', concept: 'Công viên giải trí', style: 'Vui vẻ, mát mẻ' }
       ],
       'Nghệ thuật': [
         { name: 'VCCA Vincom', img: 'https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=800&q=80', desc: 'Triển lãm đương đại', price: 'Miễn phí', concept: 'Nghệ thuật hiện đại', style: 'Sâu sắc, check-in đẹp' },
