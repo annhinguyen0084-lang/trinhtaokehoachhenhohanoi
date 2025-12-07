@@ -1,0 +1,1841 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hẹn hò tại Hà Nội — Tạo kế hoạch</title>
+  <link rel="icon" type="image/jpeg" href="logo.jpg" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;600;700&display=swap');
+
+    :root {
+      --bg: #fff5f8;
+      --card: #ffffff;
+      --accent: #ff6b9d;
+      --accent-light: #ffb3d1;
+      --muted: #a8556f;
+      --text: #111;
+      --text-light: #a8556f;
+      --border: #ffd6e5;
+      --shadow-sm: 0 4px 12px rgba(255, 107, 157, 0.2);
+      --shadow-md: 0 6px 16px rgba(255, 107, 157, 0.25);
+      --shadow-lg: 0 16px 40px rgba(255, 107, 157, 0.3);
+      --gradient-romantic: linear-gradient(135deg, rgba(255, 107, 157, 0.85) 0%, rgba(255, 143, 171, 0.85) 50%, rgba(255, 179, 209, 0.85) 100%);
+      --gradient-soft: linear-gradient(135deg, #fff5f8 0%, #ffeef5 100%);
+      --font-fancy: 'Great Vibes', cursive;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Nunito', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 17px;
+      margin: 0;
+      /* Combine patterns with the soft gradient base for full coverage */
+      background-color: #fff5f8;
+      background-image:
+        radial-gradient(circle at 15% 25%, rgba(255, 107, 157, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 85% 75%, rgba(255, 107, 157, 0.15) 0%, transparent 40%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 38.6c-9.9-8.7-16-14-16-20.4 0-4.8 3.8-8.8 8.6-8.8 2.7 0 5.3 1.3 7 3.3.1.2.5.2.7 0 1.7-2 4.3-3.3 7-3.3 4.8 0 8.6 4 8.6 8.8 0 6.4-6.1 11.7-15.9 20.4z' fill='%23ff6b9d' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E"),
+        var(--gradient-soft);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      padding-top: 340px;
+      /* Space for fixed header - adjusted closer as requested */
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      color: var(--text);
+      padding: var(--h-padding, 48px) 24px;
+      box-shadow: 0 4px 20px rgba(255, 107, 157, 0.15);
+      overflow: hidden;
+      background: rgba(255, 245, 248, 0.7);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 107, 157, 0.2);
+      will-change: padding;
+      transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    header .header-slideshow {
+      opacity: var(--bg-opacity, 1);
+      transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    header h1 {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .title-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header-logo {
+      height: var(--logo-size, 100px);
+      width: var(--logo-size, 100px);
+      object-fit: contain;
+      border-radius: 20px;
+      border: 2px solid rgba(255, 107, 157, 0.2);
+      box-shadow: 0 4px 12px rgba(255, 107, 157, 0.2);
+      background: rgba(255, 255, 255, 0.8);
+      padding: var(--logo-padding, 8px);
+      flex-shrink: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .header-logo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(255, 107, 157, 0.3);
+      border-color: rgba(255, 107, 157, 0.4);
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    @media (max-width: 768px) {
+      .header-logo {
+        height: var(--logo-size, 70px);
+        width: var(--logo-size, 70px);
+        padding: var(--logo-padding, 6px);
+      }
+    }
+
+    header p {
+      opacity: var(--p-opacity, 1);
+      max-height: var(--p-height, 100px);
+      margin-top: var(--p-margin, 16px);
+      overflow: hidden;
+      transform-origin: top;
+      transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        margin-top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .title-sub {
+      font-family: 'Playfair Display', serif;
+      font-size: var(--sub-size, 32px);
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: var(--sub-margin, 0px);
+      font-weight: 700;
+      font-style: italic;
+      line-height: 1.2;
+      color: var(--muted);
+      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+      transition: font-size 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        margin-bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .title-main {
+      font-family: var(--font-fancy);
+      font-size: var(--main-size, 72px);
+      font-weight: 700;
+      display: block;
+      line-height: 1.2;
+      margin-top: 0px;
+      color: var(--accent);
+      transition: font-size 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(255, 245, 248, 0.5), rgba(255, 255, 255, 0.95));
+      z-index: 1;
+      opacity: var(--overlay-opacity, 0.4);
+      pointer-events: none;
+      transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    header .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .header-slideshow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .header-slideshow img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      animation: slideShow 20s infinite;
+      mix-blend-mode: multiply;
+      filter: opacity(0.15) sepia(0.5) hue-rotate(320deg);
+    }
+
+    .header-slideshow img:nth-child(1) {
+      animation-delay: 0s
+    }
+
+    .header-slideshow img:nth-child(2) {
+      animation-delay: 4s
+    }
+
+    .header-slideshow img:nth-child(3) {
+      animation-delay: 8s
+    }
+
+    .header-slideshow img:nth-child(4) {
+      animation-delay: 12s
+    }
+
+    .header-slideshow img:nth-child(5) {
+      animation-delay: 16s
+    }
+
+    @keyframes slideShow {
+      0% {
+        opacity: 0;
+        transform: scale(1);
+      }
+
+      5% {
+        opacity: 1;
+      }
+
+      25% {
+        opacity: 1;
+      }
+
+      35% {
+        opacity: 0;
+        transform: scale(1.15);
+        /* More movement */
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(1.15);
+      }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 32px auto;
+      padding: 0 24px;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: var(--font-fancy);
+      font-size: 60px;
+      font-weight: 400;
+      font-style: normal;
+      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      /* Stronger shadow */
+      letter-spacing: 2px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+    }
+
+    h2 {
+      font-family: var(--font-heading);
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 24px;
+      letter-spacing: -0.3px;
+    }
+
+    h3 {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    header p {
+      font-family: var(--font-body);
+      font-size: 17px;
+      font-weight: 500;
+      opacity: 1;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+      max-width: 600px;
+      line-height: 1.6;
+      margin-top: 16px;
+      color: var(--text-light);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .container {
+        padding: 0 20px;
+      }
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 6px 20px rgba(255, 107, 157, 0.1);
+      border: 1px solid rgba(255, 107, 157, 0.1);
+      transition: all 0.3s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 24px rgba(255, 107, 157, 0.15);
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    input[type=text],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ffd6e5;
+      font-size: 14px;
+      font-family: var(--font-body);
+      background: white;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    input[type=text]:focus,
+    select:focus,
+    textarea:focus,
+    input[type=text]:hover,
+    select:hover,
+    textarea:hover {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.1);
+      background: #fff;
+    }
+
+    input[type=date],
+    input[type=time] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ffd6e5;
+      font-size: 14px;
+      font-family: var(--font-body);
+      transition: all 0.3s;
+      background: white;
+      color: var(--text);
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    input[type=date]:focus,
+    input[type=time]:focus,
+    input[type=date]:hover,
+    input[type=time]:hover {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.1);
+      background: #fff;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .row {
+      display: flex;
+      gap: 16px;
+    }
+
+    .row>* {
+      flex: 1;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: 12px;
+      border: 0;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 12px rgba(255, 107, 157, 0.3);
+    }
+
+    .btn:hover {
+      background: #ff5a8a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(255, 107, 157, 0.4);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn.secondary {
+      background: #ffeef5;
+      color: var(--accent);
+      border: 1px solid rgba(255, 107, 157, 0.3);
+      box-shadow: 0 2px 8px rgba(255, 107, 157, 0.15);
+    }
+
+    .btn.secondary:hover {
+      background: #ffd6e5;
+      border-color: var(--accent);
+    }
+
+    .result {
+      white-space: pre-wrap;
+      font-family: inherit;
+      background: #fff9fb;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px dashed #ffb3d1;
+    }
+
+    .chip {
+      display: inline-block;
+      background: #ffeef5;
+      color: var(--accent);
+      padding: 6px 10px;
+      border-radius: 20px;
+      margin: 6px 6px 0 0;
+      font-size: 13px;
+      border: 1px solid rgba(255, 107, 157, 0.2);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    footer {
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+      margin: 32px 0;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 12px;
+    }
+
+    .plan-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 12px rgba(255, 107, 157, 0.15);
+      border: 1px solid rgba(255, 107, 157, 0.2);
+      cursor: pointer;
+      transition: all 0.3s;
+      overflow: hidden;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(255, 107, 157, 0.25);
+    }
+
+    .plan-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .plan-card h4 {
+      margin: 0 0 8px 0;
+      font-family: var(--font-heading);
+      color: var(--accent);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .plan-card p {
+      margin: 4px 0;
+      color: #555;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .plan-card .time-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffeef5;
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+    .summary-card {
+      background: linear-gradient(135deg, #ffeef5 0%, #ffd6e5 100%);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 24px;
+      border: 2px solid var(--accent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .summary-card h3 {
+      margin: 0 0 12px 0;
+      color: var(--accent);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .summary-card p {
+      margin: 6px 0;
+      color: #555;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .summary-card strong {
+      color: #111;
+      font-weight: 600;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeIn 0.3s;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    .modal-content {
+      background: #fff;
+      border-radius: 16px;
+      padding: 0;
+      max-width: 600px;
+      width: 100%;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #modal-body {
+      overflow-y: auto;
+      padding: 24px;
+      min-height: 0;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .modal-content img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      box-shadow: var(--shadow-sm);
+      z-index: 20;
+    }
+
+    .modal-close:hover {
+      background: #ff5a8a;
+      transform: scale(1.1);
+    }
+
+    .interest-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .interest-btn {
+      padding: 10px 18px;
+      font-size: 14px;
+    }
+
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--accent);
+      z-index: 1001;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s;
+    }
+
+    .nav-arrow:hover {
+      background: white;
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 6px 16px rgba(255, 107, 157, 0.3);
+    }
+
+    .nav-arrow.prev {
+      left: 20px;
+    }
+
+    .nav-arrow.next {
+      right: 20px;
+    }
+
+    .modal-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 24px;
+      gap: 12px;
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+    }
+
+    .modal-nav button {
+      flex: 1;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 28px;
+      }
+
+      .container {
+        padding: 0 16px;
+        margin: 24px auto;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .grid {
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header id="main-header">
+    <div class="header-slideshow">
+      <img src="pexels-photo-4975041.jpeg" alt="Romantic background 1" />
+      <img src="media_1542_16986522984.webp" alt="Romantic background 2" />
+      <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=1200&q=80" alt="Romantic background 3" />
+      <img src="maxresdefault.jpg" alt="Romantic background 4" />
+      <img src="images (3).jpg" alt="Romantic background 5" />
+    </div>
+    <div class="container">
+      <h1 id="main-title">
+        <img src="logo.jpg" alt="Logo" class="header-logo" />
+        <div class="title-wrapper">
+          <span class="title-sub">Trình tạo kế hoạch</span>
+          <span class="title-main">Hẹn hò tại Hà Nội</span>
+        </div>
+      </h1>
+      <p>Nhập sở thích và yêu cầu, nhấn "Tạo kế hoạch" để nhận lịch trình hẹn hò được cá nhân hóa.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid">
+      <section class="card">
+        <h2>Thông tin & sở thích</h2>
+
+        <div style="margin-bottom: 24px">
+          <label>Tên cặp đôi</label>
+          <div class="row" style="margin-top: 8px">
+            <div>
+              <label style="font-size: 13px; margin-bottom: 6px; display: block">Tên bạn</label>
+              <input id="name1" type="text" placeholder="Ví dụ: An" />
+            </div>
+            <div>
+              <label style="font-size: 13px; margin-bottom: 6px; display: block">Tên người ấy</label>
+              <input id="name2" type="text" placeholder="Ví dụ: Minh" />
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 24px">
+          <label>Ngày / thời gian</label>
+          <div class="row" style="margin-top: 8px">
+            <div>
+              <label style="font-size: 13px; margin-bottom: 6px; display: block">Ngày</label>
+              <input id="date" type="date" />
+            </div>
+            <div>
+              <label style="font-size: 13px; margin-bottom: 6px; display: block">Giờ</label>
+              <input id="time" type="time" />
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 24px">
+          <label>Thời lượng dự kiến</label>
+          <select id="duration" style="margin-top: 8px">
+            <option value="half">2-3 giờ (cuộc hẹn ngắn)</option>
+            <option value="halfday">Nửa ngày (4-6 giờ)</option>
+            <option value="fullday">Cả ngày (7-10 giờ)</option>
+            <option value="evening">Chỉ buổi tối</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom: 24px">
+          <label>Sở thích chính</label>
+          <div class="interest-buttons">
+            <button class="btn secondary interest-btn" data-interest="Cafe & chill">Cafe & chill</button>
+            <button class="btn secondary interest-btn" data-interest="Ẩm thực địa phương">Ẩm thực</button>
+            <button class="btn secondary interest-btn" data-interest="Lãng mạn">Lãng mạn</button>
+            <button class="btn secondary interest-btn" data-interest="Nhiếp ảnh">Nhiếp ảnh</button>
+            <button class="btn secondary interest-btn" data-interest="Văn hóa & lịch sử">Văn hóa</button>
+            <button class="btn secondary interest-btn" data-interest="Âm nhạc / Live">Âm nhạc</button>
+            <button class="btn secondary interest-btn" data-interest="Thể thao">Thể thao</button>
+            <button class="btn secondary interest-btn" data-interest="Shopping">Shopping</button>
+            <button class="btn secondary interest-btn" data-interest="Thiên nhiên">Thiên nhiên</button>
+            <button class="btn secondary interest-btn" data-interest="Giải trí">Giải trí</button>
+            <button class="btn secondary interest-btn" data-interest="Nghệ thuật">Nghệ thuật</button>
+          </div>
+          <div id="selectedInterests"
+            style="margin-top: 12px; min-height: 40px; padding: 8px; border: 1px dashed var(--border); border-radius: 12px; display: flex; flex-wrap: wrap; gap: 8px;">
+            <span style="width: 100%; color: var(--text-light); font-size: 13px; font-style: italic;"
+              id="emptyInterestMsg">Chưa chọn sở thích nào</span>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 24px">
+          <label>Ngân sách ước tính (người/cặp)</label>
+          <select id="budget" style="margin-top: 8px">
+            <option value="low">Tiết kiệm (dưới 300k/người)</option>
+            <option value="medium">Trung bình (300k - 700k/người)</option>
+            <option value="high">Cao cấp (700k+/người)</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom: 24px">
+          <label>Ưu tiên không khí</label>
+          <select id="vibe" style="margin-top: 8px">
+            <option value="relaxed">Thư giãn, nhẹ nhàng</option>
+            <option value="romantic">Lãng mạn</option>
+            <option value="adventure">Nhiều hoạt động</option>
+            <option value="foodie">Tập trung ăn uống</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom: 28px">
+          <label>Ghi chú đặc biệt</label>
+          <textarea id="notes" placeholder="Ví dụ: dị ứng hải sản, sinh nhật, thích chụp ảnh..."
+            style="margin-top: 8px"></textarea>
+        </div>
+
+        <div style="display:flex; gap:12px; align-items:center">
+          <button class="btn" onclick="generatePlan()">Tạo kế hoạch</button>
+          <button class="btn secondary" onclick="clearForm()">Xóa</button>
+        </div>
+      </section>
+
+      <aside class="card" id="preview">
+        <h3>Kết quả</h3>
+        <div id="badges" style="margin-bottom: 16px"></div>
+        <div id="output"></div>
+        <div id="summary" style="display:none"></div>
+        <div style="margin-top: 20px; display:flex; gap:10px; flex-wrap: wrap">
+          <button class="btn secondary" onclick="copyPlan()">Sao chép</button>
+          <button class="btn" style="background:#a8556f; box-shadow: 0 4px 14px rgba(168, 85, 111, 0.4);"
+            onclick="downloadDoc()">Tải về (.doc)</button>
+        </div>
+      </aside>
+
+      <button class="nav-arrow prev" onclick="navigateModal(-1)">&#10094;</button>
+      <div id="modal" class="modal">
+        <button class="nav-arrow prev" onclick="navigateModal(-1)">&#10094;</button>
+        <div class="modal-content">
+          <button class="modal-close" onclick="closeModal()">&times;</button>
+          <div id="modal-body"></div>
+        </div>
+        <button class="nav-arrow next" onclick="navigateModal(1)">&#10095;</button>
+      </div>
+    </div>
+
+    <!-- Section for All Locations Reference -->
+    <section class="container" id="all-locations-section"
+      style="margin-top: 60px; padding-top: 40px; border-top: 1px dashed #ffd6e5;">
+      <h2
+        style="text-align: center; margin-bottom: 30px; font-family: var(--font-fancy); font-size: 64px; color: var(--accent);">
+        Khám phá tất cả địa điểm
+      </h2>
+      <div id="location-filters"
+        style="display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+        <!-- Filters populated by script -->
+      </div>
+      <div id="all-locations-container" class="grid-all-locations">
+        <!-- populated by script -->
+      </div>
+    </section>
+
+    <!-- Static Feedback Section -->
+    <section class="container" id="feedback-section-static"
+      style="margin-top: 60px; max-width: 600px; margin-left: auto; margin-right: auto;">
+      <div class="card" style="border: 2px dashed var(--accent-light);">
+        <h2 style="text-align: center; color: var(--accent); margin-bottom: 20px;">Gửi ý tưởng mới 🌱</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 24px;">Bạn biết địa điểm thú vị nào khác? Hãy chia sẻ
+          để chúng mình bổ sung vào danh sách nhé!</p>
+
+        <form class="feedback-form" onsubmit="handleFeedback(event)">
+          <div style="margin-bottom: 16px;">
+            <label>Tên của bạn (Tùy chọn)</label>
+            <input type="text" name="fb-name" placeholder="Nhập tên..."
+              style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; outline: none;">
+          </div>
+          <div style="margin-bottom: 16px;">
+            <label>Ý tưởng / Địa điểm mới (*)</label>
+            <textarea name="fb-idea" required placeholder="Ví dụ: Quán cafe X ở phố Y rất chill, giá khoảng 40k..."
+              rows="4"
+              style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; outline: none; resize: vertical;"></textarea>
+          </div>
+          <button type="submit" class="btn" style="width: 100%;">Gửi đóng góp 💌</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      Mẹo: thử nhiều lựa chọn sở thích/khung thời gian để nhận được kế hoạch khác nhau. Dự án đơn giản, dùng cho tham
+      khảo.
+    </footer>
+  </main>
+
+  <script>
+    // Smooth scroll animation using CSS variables
+    const header = document.getElementById('main-header');
+    let ticking = false;
+
+    function updateHeader() {
+      const scrollY = window.scrollY;
+      const maxScroll = 150; // Faster transition (previously 300)
+      const progress = Math.min(scrollY / maxScroll, 1);
+
+      // Interpolate values linearly over the full range
+      const padding = 48 - (36 * progress); // 48px -> 12px
+      const subSize = 32 - (16 * progress); // 32px -> 16px
+      const mainSize = 72 - (40 * progress); // 72px -> 32px
+      
+      // Logo size: responsive - desktop 100px->50px, mobile 70px->40px
+      const isMobile = window.innerWidth <= 768;
+      const logoStart = isMobile ? 70 : 100;
+      const logoEnd = isMobile ? 40 : 50;
+      const logoSize = logoStart - ((logoStart - logoEnd) * progress);
+      const logoPadding = 8 - (4 * progress); // 8px -> 4px
+
+      // Sync these exactly with scroll progress
+      const pOpacity = 1 - progress;
+      const pHeight = 100 * (1 - progress);
+      const pMargin = 16 * (1 - progress);
+
+      const bgOpacity = 1 - (0.5 * progress);
+      const subMargin = 0 - (5 * progress);
+      const overlayOpacity = 0.4 + (0.6 * progress); // 0.4 -> 1.0 (More solid white on scroll)
+
+      // Apply CSS variables
+      header.style.setProperty('--h-padding', `${padding}px`);
+      header.style.setProperty('--sub-size', `${subSize}px`);
+      header.style.setProperty('--main-size', `${mainSize}px`);
+      header.style.setProperty('--logo-size', `${logoSize}px`);
+      header.style.setProperty('--logo-padding', `${logoPadding}px`);
+      header.style.setProperty('--p-opacity', pOpacity);
+      header.style.setProperty('--p-height', `${pHeight}px`);
+      header.style.setProperty('--p-margin', `${pMargin}px`);
+      header.style.setProperty('--bg-opacity', bgOpacity);
+      header.style.setProperty('--sub-margin', `${subMargin}px`);
+      header.style.setProperty('--overlay-opacity', overlayOpacity);
+
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    });
+
+    // Initial call
+    updateHeader();
+
+    let selectedInterests = new Set();
+    let currentActivities = [];
+
+    // Danh sách địa điểm (Global) - Updated with new details
+    const places = {
+      'Văn hóa': [
+        { name: 'Văn Miếu - Quốc Tử Giám', img: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800&q=80', desc: 'Di tích lịch sử văn hóa nổi tiếng', price: '30.000đ/vé', concept: 'Cổ kính, trang nghiêm', style: 'Tham quan, chụp ảnh' },
+        { name: 'Nhà hát Múa rối nước Thăng Long', img: 'https://images.unsplash.com/photo-1580477667995-2b94f01c9516?w=800&q=80', desc: 'Trải nghiệm nghệ thuật truyền thống độc đáo', price: '100.000đ - 200.000đ/vé', concept: 'Nghệ thuật dân gian', style: 'Giải trí, văn hóa' },
+        { name: 'Lăng Chủ tịch Hồ Chí Minh', img: 'https://images.unsplash.com/photo-1528127269322-539801943592?w=800&q=80', desc: 'Di tích lịch sử quan trọng, không gian trang nghiêm', price: 'Miễn phí (người Việt)', concept: 'Trang nghiêm, lịch sử', style: 'Tham quan' },
+        { name: 'Chùa Một Cột', img: 'Cloud của tôi [06-12-2025 20_04] (1)/chua1cot.jpg', desc: 'Biểu tượng văn hóa độc đáo của Hà Nội', price: 'Miễn phí', concept: 'Phật giáo, kiến trúc độc đáo', style: 'Tâm linh, tham quan' },
+        { name: 'Bảo tàng Dân tộc học Việt Nam', img: 'Cloud của tôi [06-12-2025 20_04] (1)/baotangdantoc.jpg', desc: 'Khám phá văn hóa 54 dân tộc Việt Nam', price: '40.000đ/vé', concept: 'Văn hóa đa dạng', style: 'Học hỏi, khám phá' },
+        { name: 'Bảo tàng Lịch sử Quốc gia', img: 'Cloud của tôi [06-12-2025 20_04] (1)/baotanglichsu.jpg', desc: 'Tìm hiểu lịch sử Việt Nam qua các thời kỳ', price: '40.000đ/vé', concept: 'Lịch sử, kiến trúc Pháp', style: 'Tham quan' }
+      ],
+      'Cafe & chill': [
+        { name: 'Cà phê Nhà Sàn', img: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&q=80', desc: 'Không gian ấm cúng, lãng mạn', price: '30k - 60k', menu: 'Cafe, trà, sinh tố', concept: 'Vintage, bao cấp', style: 'Yên tĩnh, hoài cổ' },
+        { name: 'Cộng cà phê khu Hoàn Kiếm', img: 'Cloud của tôi [06-12-2025 20_04]/congcafe.jpg', desc: 'View đẹp, không khí thư giãn', price: '40k - 80k', menu: 'Cà phê cốt dừa, bạc xỉu', concept: 'Thời bao cấp', style: 'Nhộn nhịp, view phố' },
+        { name: 'Cà phê view Hồ Tây', img: 'Cloud của tôi [06-12-2025 20_04]/cafeviewhotay.jpg', desc: 'Ngắm cảnh hồ tuyệt đẹp', price: '50k - 100k', menu: 'Cocktail, trà, bánh', concept: 'Hiện đại, không gian mở', style: 'Lãng mạn, chill' },
+        { name: 'Cà phê Trung Nguyên Legend', img: 'Cloud của tôi [06-12-2025 20_04]/cafetrungnguyen.jpg', desc: 'Không gian sang trọng, cà phê chất lượng', price: '60k - 150k', menu: 'Cà phê năng lượng', concept: 'Sách & tri thức', style: 'Sang trọng, tĩnh lặng' },
+        { name: 'Cà phê The Note Coffee', img: 'Cloud của tôi [06-12-2025 20_04]/cafethenotecoffee.jpg', desc: 'Không gian độc đáo với ghi chú trên tường', price: '40k - 70k', menu: 'Cà phê trứng, latte', concept: 'Đầy màu sắc, tương tác', style: 'Vui vẻ, check-in' },
+        { name: 'Cà phê Phố Cổ', img: 'Cloud của tôi [06-12-2025 20_04]/cafephoco.jpg', desc: 'Không gian cổ kính, yên tĩnh', price: '30k - 60k', menu: 'Cà phê trứng', concept: 'Nhà cổ Hà Nội', style: 'Ẩn mình, yên bình' },
+        { name: 'Cafe Phố Cổ', img: 'Cloud của tôi [06-12-2025 20_04]/cafephoco.jpg', desc: 'Không gian cổ kính đậm chất Hà Nội', price: '35k - 65k', menu: 'Cà phê, trà, đồ uống truyền thống', concept: 'Phố cổ Hà Nội', style: 'Hoài niệm, yên bình' },
+        { name: 'Cafe Dinh', img: 'Cloud của tôi [06-12-2025 20_04]/cafedinh.jpg', desc: 'Không gian ấm cúng, view đẹp', price: '40k - 80k', menu: 'Cafe, trà, bánh ngọt', concept: 'Cổ điển, sang trọng', style: 'Lãng mạn, thư giãn' },
+        { name: 'Cafe Tranquil & Coffee', img: 'Cloud của tôi [06-12-2025 20_04]/cafetranquil.jpg', desc: 'Không gian yên tĩnh, thanh bình', price: '45k - 90k', menu: 'Cafe specialty, trà, bánh', concept: 'Minimalist, zen', style: 'Tĩnh lặng, tập trung' },
+        { name: 'Cafe The Hanoi Social Club', img: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80', desc: 'Không gian cộng đồng, ấm cúng', price: '50k - 100k', menu: 'Cafe, đồ ăn Tây, cocktail', concept: 'Social hub, bohemian', style: 'Thân thiện, đa văn hóa' }
+      ],
+      'Ẩm thực': [
+        { name: 'Bún chả Hàng Mành', img: 'images/bunchad.jpg', desc: 'Đặc sản Hà Nội nổi tiếng', price: '60k - 100k/người', menu: 'Bún chả, nem cua bể', concept: 'Truyền thống lâu đời', style: 'Sôi động, bình dân' },
+        { name: 'Phở Bát Đàn', img: 'images/phobatdan.jpg', desc: 'Món ăn truyền thống ngon', price: '50k - 70k/bát', menu: 'Phở bò tái, chín', concept: 'Gia truyền, xếp hàng', style: 'Thưởng thức nhanh' },
+        { name: 'Phở 10 Lý Quốc Sư', img: 'images/pholiquocsu.jpg', desc: 'Phở nổi tiếng, nước dùng đậm đà', price: '60k - 80k/bát', menu: 'Phở bò, phở gà', concept: 'Gia truyền, đông khách', style: 'Nhanh gọn, ngon miệng' },
+        { name: 'Nem nướng Nha Trang', img: 'https://images.unsplash.com/photo-1548545814-7494a86034f5?w=800&q=80', desc: 'Món cuốn hấp dẫn với nước chấm đặc biệt', price: '60k - 100k/người', menu: 'Nem nướng, ram, bánh tráng', concept: 'Quán ăn vặt, tụ tập', style: 'Trẻ trung, thoải mái' },
+        { name: 'Bánh tôm Hồ Tây', img: 'images/banhtomhotay.jpg', desc: 'Đặc sản bánh tôm giòn rụm bên Hồ Tây', price: '150k - 250k/người', menu: 'Bánh tôm, há cảo, bia', concept: 'View Hồ Tây lộng gió', style: 'Thư giãn, ngắm cảnh' },
+        { name: 'Quán nướng đường phố', img: 'images/quannuong.jpg', desc: 'Ẩm thực đường phố đa dạng', price: '150k - 250k/người', menu: 'Thịt nướng, hải sản', concept: 'Vỉa hè thoáng mát', style: 'Nhậu nhẹt, vui vẻ' },
+        { name: 'Bánh mì Phố Huế', img: 'images/banhmi.jpg', desc: 'Bánh mì ngon nhất Hà Nội', price: '25k - 40k/chiếc', menu: 'Bánh mì thập cẩm', concept: 'Mang đi', style: 'Nhanh gọn' },
+        { name: 'Chả cá Lã Vọng', img: 'images/chaca.jpg', desc: 'Món đặc sản độc đáo', price: '150k - 300k/người', menu: 'Chả cá lăng', concept: 'Nhà hàng truyền thống', style: 'Sang trọng kiểu cũ' },
+        { name: 'Nhà hàng Quán Ăn Ngon', img: 'images/quananngon.jpg', desc: 'Tổng hợp ẩm thực Việt Nam', price: '200k - 400k/người', menu: 'Món Việt 3 miền', concept: 'Biệt thự cổ, chợ quê', style: 'Sum họp, đa dạng' }
+      ],
+      'Nhiếp ảnh': [
+        { name: 'Phố cổ (Hàng Đào, Hàng Ngang)', img: 'Cloud của tôi [06-12-2025 20_02]/phoco.jpg', desc: 'Không gian cổ kính, đầy chất thơ', price: 'Miễn phí', concept: 'Kiến trúc cổ', style: 'Street life' },
+        { name: 'Cầu Long Biên', img: 'Cloud của tôi [06-12-2025 20_02]/caulongbien.jpg', desc: 'Cảnh đẹp hoàng hôn', price: 'Miễn phí', concept: 'Hoài niệm, lịch sử', style: 'Phong cảnh, chân dung' },
+        { name: 'Hồ Gươm lúc hoàng hôn', img: 'Cloud của tôi [06-12-2025 20_02]/hoguom.jpg', desc: 'Khung cảnh lãng mạn', price: 'Miễn phí', concept: 'Thiên nhiên giữa phố', style: 'Lãng mạn' },
+        { name: 'Phố Phan Đình Phùng', img: 'Cloud của tôi [06-12-2025 20_02]/phodibo.jpg', desc: 'Con đường đẹp nhất Hà Nội', price: 'Miễn phí', concept: 'Hàng cây cổ thụ', style: 'Mùa thu, áo dài' },
+        { name: 'Hồ Tây', img: 'Cloud của tôi [06-12-2025 20_02]/hotay.jpg', desc: 'Hồ lớn nhất Hà Nội, cảnh đẹp bốn mùa', price: 'Miễn phí', concept: 'Thiên nhiên, hồ nước', style: 'Phong cảnh, hoàng hôn' },
+        { name: 'Chợ Đồng Xuân', img: 'Cloud của tôi [06-12-2025 20_02]/chodongxuan.jpg', desc: 'Chợ truyền thống, đời sống đô thị', price: 'Miễn phí', concept: 'Văn hóa chợ truyền thống', style: 'Street photography, đời thường' },
+        { name: 'Phố Hàng Mã', img: 'Cloud của tôi [06-12-2025 20_02]/hangma.jpg', desc: 'Phố đầy màu sắc, đặc biệt dịp lễ tết', price: 'Miễn phí', concept: 'Màu sắc rực rỡ, văn hóa', style: 'Nhiều màu sắc, sống động' },
+        { name: 'Vườn hoa Lý Thái Tổ', img: 'Cloud của tôi [06-12-2025 20_02]/lithaito.jpg', desc: 'Công viên trung tâm, không gian xanh', price: 'Miễn phí', concept: 'Công viên, tượng đài', style: 'Xanh mát, lịch sử' },
+        { name: 'Phố Tạ Hiện về đêm', img: 'Cloud của tôi [06-12-2025 20_02]/tahien.jpg', desc: 'Phố phường sôi động về đêm, ánh sáng đẹp', price: 'Miễn phí', concept: 'Đêm Hà Nội, sôi động', style: 'Night photography, neon lights' }
+      ],
+      'Âm nhạc': [
+        { name: 'Tạ Hiện Acoustic', img: 'amnhac/a84ca448282da773fe3c30.jpg', desc: 'Không khí âm nhạc sống động', price: '100k - 300k (đồ uống)', menu: 'Bia, cocktail', concept: 'Đường phố, sôi động', style: 'Acoustic, trẻ trung' },
+        { name: 'Binh Minh Jazz Club', img: 'amnhac/c108db0c5769d837817831.jpg', desc: 'Không gian jazz cổ điển', price: '200k - 500k', menu: 'Rượu vang, cocktail', concept: 'Huyền thoại Jazz', style: 'Đẳng cấp, nghệ thuật' },
+        { name: 'Polygon Musik', img: 'amnhac/c7a9bdad31c8be96e7d932.jpg', desc: 'Nhạc sống chất lượng', price: '150k - 300k', menu: 'Đồ uống đa dạng', concept: 'Live music stage', style: 'Sôi nổi, đam mê' }
+      ],
+      'Lãng mạn': [
+        { name: 'Dạo Hồ Hoàn Kiếm', img: 'Cloud của tôi [06-12-2025 20_02]/dibohoguom.jpg', desc: 'Không gian yên bình, lãng mạn', price: 'Miễn phí', concept: 'Đi bộ, tâm tình', style: 'Nhẹ nhàng' },
+        { name: 'Summit Lounge', img: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80', desc: 'View thành phố tuyệt đẹp', price: '200k - 500k', menu: 'Cocktail cao cấp', concept: 'Rooftop sang chảnh', style: 'Sang trọng, hẹn hò' },
+        { name: 'Đi thuyền Hồ Tây', img: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80', desc: 'Ngắm hoàng hôn trên hồ', price: '150k - 300k', concept: 'Thiên nhiên sông nước', style: 'Riêng tư' }
+      ],
+      'Thể thao': [
+        { name: 'Đạp xe Hồ Tây', img: 'https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=800&q=80', desc: 'Vận động vui vẻ', price: '50k - 100k/xe', concept: 'Hoạt động ngoài trời', style: 'Khỏe khoắn, thư giãn' },
+        { name: 'Bowling Vincom', img: 'https://images.unsplash.com/photo-1511447333015-45b65e60f6d5?w=800&q=80', desc: 'Hoạt động giải trí vui nhộn', price: '100k - 200k/game', concept: 'Giải trí trong nhà', style: 'Vui vẻ, tranh tài' },
+        { name: 'Bơi lội tại bể bơi', img: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80', desc: 'Vận động toàn thân, mát mẻ', price: '50k - 100k/lượt', concept: 'Thể thao dưới nước', style: 'Khỏe khoắn, giải nhiệt' },
+        { name: 'Chơi cầu lông hoặc tennis', img: 'https://images.unsplash.com/photo-1622163642999-9586a0b0d1d0?w=800&q=80', desc: 'Thể thao đối kháng vui vẻ', price: '100k - 200k/sân/giờ', concept: 'Thể thao đối kháng', style: 'Năng động, cạnh tranh' },
+        { name: 'Chạy bộ công viên', img: 'https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=800&q=80', desc: 'Vận động nhẹ nhàng, không khí trong lành', price: 'Miễn phí', concept: 'Thể thao ngoài trời', style: 'Khỏe khoắn, thư giãn' }
+      ],
+      'Shopping': [
+        { name: 'Aeon Mall Long Biên', img: 'https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?w=800&q=80', desc: 'Shopping hiện đại', price: 'Tùy chi tiêu', concept: 'Mall Nhật Bản', style: 'Tiện nghi, hiện đại' },
+        { name: 'Phố Hàng Bông', img: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80', desc: 'Mua sắm đồ handmade', price: 'Tùy món', concept: 'Phố nghề lụa', style: 'Tinh tế, truyền thống' },
+        { name: 'Trung tâm thương mại Vincom', img: 'https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?w=800&q=80', desc: 'Shopping center lớn, đa dạng thương hiệu', price: 'Tùy chi tiêu', concept: 'Mall hiện đại', style: 'Sang trọng, đầy đủ' },
+        { name: 'Lotte Center', img: 'https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?w=800&q=80', desc: 'Trung tâm thương mại cao cấp', price: 'Tùy chi tiêu', concept: 'Mall cao cấp', style: 'Sang trọng, view đẹp' },
+        { name: 'Phố Hàng Đào', img: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80', desc: 'Phố mua sắm truyền thống, đa dạng', price: 'Tùy món', concept: 'Phố cổ, đa dạng', style: 'Truyền thống, sôi động' },
+        { name: 'Phố Hàng Ngang', img: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80', desc: 'Phố cổ, mua sắm đồ lưu niệm', price: 'Tùy món', concept: 'Phố cổ Hà Nội', style: 'Truyền thống, đặc sắc' }
+      ],
+      'Thiên nhiên': [
+        { name: 'Công viên Yên Sở', img: 'https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?w=800&q=80', desc: 'Không gian rộng lớn', price: 'Miễn phí vào cửa', concept: 'Cắm trại, picnic', style: 'Xanh mát, thư thái' },
+        { name: 'Vườn Bách Thảo', img: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80', desc: 'Không gian xanh yên tĩnh', price: '10k/vé', concept: 'Rừng trong phố', style: 'Yên bình, trong lành' },
+        { name: 'Công viên Thủ Lệ', img: 'https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?w=800&q=80', desc: 'Công viên có vườn thú, không gian xanh', price: '30k - 50k/vé', concept: 'Công viên giải trí', style: 'Vui vẻ, thiên nhiên' },
+        { name: 'Hồ Trúc Bạch', img: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=80', desc: 'Hồ đẹp, không gian yên bình', price: 'Miễn phí', concept: 'Hồ nước, thiên nhiên', style: 'Yên tĩnh, lãng mạn' }
+      ],
+      'Giải trí': [
+        { name: 'Escape Room', img: 'giaitri/escaperoom.jpg', desc: 'Thử thách giải đố', price: '150k - 250k/người', concept: 'Trò chơi trí tuệ', style: 'Hồi hộp, kịch tính' },
+        { name: 'CGV Cinema', img: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80', desc: 'Xem phim bom tấn', price: '100k - 250k/vé', concept: 'Rạp chiếu phim', style: 'Giải trí phổ biến' },
+        { name: 'Karaoke tại phòng riêng', img: 'giaitri/karaoke.jpg', desc: 'Hát karaoke riêng tư, vui vẻ', price: '200k - 500k/phòng/giờ', concept: 'Giải trí âm nhạc', style: 'Vui vẻ, thân mật' },
+        { name: 'Billiards', img: 'giaitri/billiards.jpg', desc: 'Chơi bi-a, giải trí', price: '80k - 150k/bàn/giờ', concept: 'Trò chơi trong nhà', style: 'Tranh tài, thư giãn' },
+        { name: 'VR Gaming', img: 'giaitri/vrgaming.jpg', desc: 'Trải nghiệm thực tế ảo', price: '150k - 300k/người', concept: 'Công nghệ VR', style: 'Hiện đại, hấp dẫn' },
+        { name: 'Board Game Cafe', img: 'giaitri/boardgame.jpg', desc: 'Chơi board game, trò chuyện', price: '50k - 100k/người', menu: 'Cafe, đồ uống', concept: 'Trò chơi bàn cờ', style: 'Vui vẻ, tương tác' },
+        { name: 'Công viên nước', img: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80', desc: 'Vui chơi dưới nước, giải nhiệt', price: '150k - 300k/người', concept: 'Công viên giải trí', style: 'Vui vẻ, mát mẻ' }
+      ],
+      'Nghệ thuật': [
+        { name: 'VCCA Vincom', img: 'https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=800&q=80', desc: 'Triển lãm đương đại', price: 'Miễn phí', concept: 'Nghệ thuật hiện đại', style: 'Sâu sắc, check-in đẹp' },
+        { name: 'Manzi Art Space', img: 'nghệ thuật/manziartspace.jpg', desc: 'Cafe và tranh', price: '50k - 100k', menu: 'Cafe, trà, rượu', concept: 'Biệt thự Pháp cổ', style: 'Nghệ thuật, tĩnh lặng' },
+        { name: 'Triển lãm nghệ thuật', img: 'nghệ thuật/trienlam.jpg', desc: 'Xem các tác phẩm nghệ thuật đương đại', price: 'Miễn phí - 100k/vé', concept: 'Nghệ thuật đương đại', style: 'Sâu sắc, học hỏi' },
+        { name: 'Workshop làm gốm', img: 'nghệ thuật/lamgom.jpg', desc: 'Học làm gốm, sáng tạo', price: '200k - 400k/người', concept: 'Thủ công, sáng tạo', style: 'Tương tác, thú vị' },
+        { name: 'Xem kịch hoặc nhạc kịch', img: 'nghệ thuật/nhackich.jpg', desc: 'Thưởng thức nghệ thuật sân khấu', price: '200k - 800k/vé', concept: 'Nghệ thuật sân khấu', style: 'Văn hóa, sang trọng' }
+      ]
+    };
+
+    function updateSelectedInterestsDisplay() {
+      const container = document.getElementById('selectedInterests');
+      const emptyMsg = document.getElementById('emptyInterestMsg');
+
+      // Clear current chips but keep the empty message element (hidden or shown based on set size)
+      container.innerHTML = '<span style="width: 100%; color: var(--text-light); font-size: 13px; font-style: italic; display: none;" id="emptyInterestMsg">Chưa chọn sở thích nào</span>';
+
+      if (selectedInterests.size === 0) {
+        document.getElementById('emptyInterestMsg').style.display = 'block';
+      } else {
+        selectedInterests.forEach(interest => {
+          const chip = document.createElement('span');
+          chip.className = 'chip';
+          chip.style.margin = '0';
+          chip.style.cursor = 'pointer';
+          chip.title = 'Nhấn để bỏ chọn';
+          chip.innerHTML = `${interest} &times;`;
+          chip.onclick = () => toggleInterest(interest);
+          container.appendChild(chip);
+        });
+      }
+
+      // Update button states
+      document.querySelectorAll('.interest-btn').forEach(btn => {
+        const interest = btn.getAttribute('data-interest');
+        if (selectedInterests.has(interest)) {
+          btn.classList.remove('secondary');
+          btn.style.boxShadow = 'inset 0 2px 4px rgba(0,0,0,0.1)';
+        } else {
+          btn.classList.add('secondary');
+          btn.style.boxShadow = '';
+        }
+      });
+    }
+
+    function toggleInterest(text) {
+      if (selectedInterests.has(text)) {
+        selectedInterests.delete(text);
+      } else {
+        selectedInterests.add(text);
+      }
+      updateSelectedInterestsDisplay();
+    }
+
+    // Add event listeners for interest buttons
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.interest-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+          toggleInterest(this.getAttribute('data-interest'));
+        });
+      });
+    });
+
+    function clearForm() {
+      ['name1', 'name2', 'date', 'time', 'notes'].forEach(id => document.getElementById(id).value = '');
+      selectedInterests.clear();
+      updateSelectedInterestsDisplay();
+      document.getElementById('duration').value = 'half';
+      document.getElementById('budget').value = 'medium';
+      document.getElementById('vibe').value = 'relaxed';
+      document.getElementById('badges').innerHTML = '';
+      document.getElementById('output').innerHTML = '<div class="result">Nhấn "Tạo kế hoạch" để nhận lịch trình hẹn hò.</div>';
+      document.getElementById('summary').style.display = 'none';
+    }
+
+    function generatePlan() {
+      const name1 = document.getElementById('name1').value.trim();
+      const name2 = document.getElementById('name2').value.trim();
+      let names = 'Bạn & Người ấy';
+      if (name1 && name2) {
+        names = `${name1} & ${name2}`;
+      } else if (name1) {
+        names = `${name1} & Người ấy`;
+      } else if (name2) {
+        names = `Bạn & ${name2}`;
+      }
+      const dateInput = document.getElementById('date').value;
+      const timeInput = document.getElementById('time').value;
+      let datetime = 'Chưa chọn thời gian cụ thể';
+      if (dateInput && timeInput) {
+        const date = new Date(dateInput + 'T' + timeInput);
+        const days = ['Chủ nhật', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
+        const dayName = days[date.getDay()];
+        const hours = date.getHours();
+        const minutes = date.getMinutes().toString().padStart(2, '0');
+        const timeStr = `${hours}:${minutes}`;
+        datetime = `${dayName}, ${date.toLocaleDateString('vi-VN')} lúc ${timeStr}`;
+      }
+      const duration = document.getElementById('duration').value;
+      const budget = document.getElementById('budget').value;
+      const vibe = document.getElementById('vibe').value;
+      const notes = document.getElementById('notes').value;
+
+      const interests = Array.from(selectedInterests);
+
+      // show badges
+      const badges = document.getElementById('badges'); badges.innerHTML = '';
+      if (interests.length) interests.forEach(i => { const c = document.createElement('span'); c.className = 'chip'; c.textContent = i; badges.appendChild(c) });
+
+      // Sử dụng danh sách địa điểm global 'places'
+
+
+
+
+
+
+
+      // Hàm tìm danh mục từ sở thích
+      function findCategoryFromInterest(interest) {
+        const interestLower = interest.toLowerCase();
+        // Tìm trực tiếp trong tên danh mục
+        for (const cat in places) {
+          if (interestLower.includes(cat.toLowerCase()) || cat.toLowerCase().includes(interestLower)) {
+            return cat;
+          }
+        }
+        return null;
+      }
+
+      // Hàm chọn địa điểm ngẫu nhiên từ danh mục
+      function pickRandomFromCategory(category) {
+        if (places[category] && places[category].length > 0) {
+          const options = places[category];
+          return options[Math.floor(Math.random() * options.length)];
+        }
+        return null;
+      }
+
+      // Hàm chọn địa điểm dựa trên sở thích, tránh trùng lặp
+      const usedPlaces = new Set();
+      function pickUniqueByInterest(interestList, preferredCategories = []) {
+        // Tạo danh sách danh mục từ sở thích
+        const allCategories = [];
+
+        // Thêm các danh mục từ preferredCategories
+        preferredCategories.forEach(cat => {
+          if (places[cat] && !allCategories.includes(cat)) {
+            allCategories.push(cat);
+          }
+        });
+
+        // Thêm các danh mục từ interestList
+        interestList.forEach(interest => {
+          const cat = findCategoryFromInterest(interest);
+          if (cat && places[cat] && !allCategories.includes(cat)) {
+            allCategories.push(cat);
+          }
+        });
+
+        // Nếu không có danh mục ưu tiên, chọn ngẫu nhiên từ tất cả
+        if (allCategories.length === 0) {
+          const categories = Object.keys(places);
+          allCategories.push(...categories);
+        }
+
+        // Trộn ngẫu nhiên danh mục để đa dạng
+        for (let i = allCategories.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [allCategories[i], allCategories[j]] = [allCategories[j], allCategories[i]];
+        }
+
+        // Thử chọn từ các danh mục, tránh trùng lặp
+        for (const cat of allCategories) {
+          const availablePlaces = places[cat].filter(p => !usedPlaces.has(p.name));
+          if (availablePlaces.length > 0) {
+            const place = availablePlaces[Math.floor(Math.random() * availablePlaces.length)];
+            usedPlaces.add(place.name);
+            return place;
+          }
+        }
+
+        // Nếu tất cả đã dùng, reset và chọn lại
+        if (usedPlaces.size > 50) usedPlaces.clear();
+
+        // Chọn ngẫu nhiên từ tất cả
+        const allPlaces = [].concat(...Object.values(places));
+        const randomPlace = allPlaces[Math.floor(Math.random() * allPlaces.length)];
+        usedPlaces.add(randomPlace.name);
+        return randomPlace;
+      }
+
+      // Xác định danh mục ưu tiên từ sở thích
+      const preferredCategories = [];
+      interests.forEach(interest => {
+        const cat = findCategoryFromInterest(interest);
+        if (cat && !preferredCategories.includes(cat)) {
+          preferredCategories.push(cat);
+        }
+      });
+
+      currentActivities = [];
+      const activities = currentActivities;
+      let summaryText = '';
+      let totalMinutes = 0;
+
+      // Tính thời gian dựa trên duration
+      const durationMinutes = {
+        'half': 150,      // 2.5 giờ
+        'halfday': 300,   // 5 giờ
+        'fullday': 540,   // 9 giờ
+        'evening': 180    // 3 giờ
+      };
+      const maxMinutes = durationMinutes[duration] || 180;
+
+      if (duration === 'half') {
+        // 2-3 hoạt động cho cuộc hẹn ngắn
+        const act1 = pickUniqueByInterest(interests, preferredCategories);
+        const time1 = 60;
+        activities.push({
+          step: 1,
+          title: 'Bắt đầu',
+          place: act1.name,
+          desc: act1.desc || 'Gặp gỡ, trò chuyện',
+          time: `${time1} phút`,
+          img: act1.img,
+          detail: 'Không gian ấm cúng, thích hợp để trò chuyện và làm quen.'
+        });
+        totalMinutes += time1;
+
+        if (totalMinutes < maxMinutes - 60) {
+          const act2 = pickUniqueByInterest(interests, preferredCategories);
+          const time2 = Math.min(45, maxMinutes - totalMinutes - 30);
+          activities.push({
+            step: 2,
+            title: 'Hoạt động',
+            place: act2.name,
+            desc: act2.desc || 'Trải nghiệm thú vị',
+            time: `${time2} phút`,
+            img: act2.img,
+            detail: 'Không gian yên bình, nhiều góc chụp ảnh đẹp để lưu giữ kỷ niệm.'
+          });
+          totalMinutes += time2;
+        }
+
+        if (budget !== 'low' && totalMinutes < maxMinutes - 30) {
+          const act3 = pickUniqueByInterest(['ẩm thực', 'ăn'], ['Ẩm thực']);
+          const time3 = Math.min(45, maxMinutes - totalMinutes);
+          activities.push({
+            step: 3,
+            title: 'Kết thúc',
+            place: act3.name,
+            desc: act3.desc || 'Thưởng thức ẩm thực',
+            time: `${time3} phút`,
+            img: act3.img,
+            detail: 'Thưởng thức hương vị ẩm thực đặc sắc.'
+          });
+        }
+        summaryText = 'Thời lượng: 2-3 giờ — phù hợp cho buổi tối nhẹ nhàng hoặc chiều cuối tuần.';
+      } else if (duration === 'halfday') {
+        // 3-4 hoạt động cho nửa ngày
+        const act1 = pickUniqueByInterest(interests, preferredCategories);
+        const time1 = 90;
+        activities.push({
+          step: 1,
+          title: 'Bắt đầu',
+          place: act1.name,
+          desc: act1.desc || 'Thăm quan, chụp ảnh, tìm hiểu',
+          time: `${time1} phút`,
+          img: act1.img,
+          detail: 'Cùng nhau khám phá vẻ đẹp văn hóa và lịch sử.'
+        });
+        totalMinutes += time1;
+
+        const act2 = pickUniqueByInterest(['ẩm thực', 'ăn'], ['Ẩm thực']);
+        const time2 = 60;
+        activities.push({
+          step: 2,
+          title: 'Ăn trưa',
+          place: act2.name,
+          desc: act2.desc || 'Thưởng thức ẩm thực',
+          time: `${time2} phút`,
+          img: act2.img,
+          detail: 'Nghỉ ngơi và thưởng thức các món ăn ngon miệng.'
+        });
+        totalMinutes += time2;
+
+        const act3 = pickUniqueByInterest(interests.length > 0 ? interests : ['lãng mạn', 'thiên nhiên'], preferredCategories.length > 0 ? preferredCategories : ['Lãng mạn', 'Thiên nhiên']);
+        const time3 = Math.min(90, maxMinutes - totalMinutes);
+        activities.push({
+          step: 3,
+          title: 'Buổi chiều',
+          place: act3.name,
+          desc: act3.desc || 'Thư giãn, ngắm cảnh',
+          time: `${time3} phút`,
+          img: act3.img,
+          detail: 'Tận hưởng không khí lãng mạn và cảnh quan tuyệt đẹp.'
+        });
+        summaryText = 'Thời lượng: Nửa ngày — phù hợp cho sáng hoặc chiều trọn vẹn.';
+      } else if (duration === 'fullday') {
+        // 4-5 hoạt động cho cả ngày
+        const act1 = pickUniqueByInterest(['văn hóa', 'nhiếp ảnh'], ['Văn hóa', 'Nhiếp ảnh']);
+        const time1 = 120;
+        activities.push({
+          step: 1,
+          title: 'Sáng',
+          place: act1.name,
+          desc: act1.desc || 'Tham quan, chụp ảnh',
+          time: `${time1} phút`,
+          img: act1.img,
+          detail: 'Dành buổi sáng để tham quan các địa danh văn hóa.'
+        });
+        totalMinutes += time1;
+
+        const act2 = pickUniqueByInterest(['ẩm thực', 'ăn'], ['Ẩm thực']);
+        const time2 = 90;
+        activities.push({
+          step: 2,
+          title: 'Trưa',
+          place: act2.name,
+          desc: act2.desc || 'Thưởng thức ẩm thực',
+          time: `${time2} phút`,
+          img: act2.img,
+          detail: 'Nạp năng lượng với bữa trưa ngon miệng.'
+        });
+        totalMinutes += time2;
+
+        const act3 = pickUniqueByInterest(['thiên nhiên', 'thể thao', 'cafe'], ['Thiên nhiên', 'Thể thao', 'Cafe & chill']);
+        const time3 = 120;
+        activities.push({
+          step: 3,
+          title: 'Chiều',
+          place: act3.name,
+          desc: act3.desc || 'Hoạt động vui vẻ',
+          time: `${time3} phút`,
+          img: act3.img,
+          detail: 'Tham gia các hoạt động giải trí hoặc thư giãn ngoài trời.'
+        });
+        totalMinutes += time3;
+
+        const act4 = pickUniqueByInterest(['lãng mạn', 'ẩm thực'], ['Lãng mạn', 'Ẩm thực']);
+        const time4 = Math.min(150, maxMinutes - totalMinutes);
+        activities.push({
+          step: 4,
+          title: 'Tối',
+          place: act4.name,
+          desc: act4.desc || 'Ăn tối lãng mạn',
+          time: `${time4} phút`,
+          img: act4.img,
+          detail: 'Kết thúc ngày bằng bữa tối trong không gian lãng mạn.'
+        });
+        summaryText = 'Thời lượng: Cả ngày — khám phá nhiều điểm, phù hợp cho ngày lễ hoặc sinh nhật.';
+      } else if (duration === 'evening') {
+        // 2-3 hoạt động cho buổi tối
+        const act1 = pickUniqueByInterest(['ẩm thực', 'lãng mạn'], ['Ẩm thực', 'Lãng mạn']);
+        const time1 = 120;
+        activities.push({
+          step: 1,
+          title: 'Bắt đầu',
+          place: act1.name,
+          desc: act1.desc || 'Thưởng thức ẩm thực',
+          time: `${time1} phút`,
+          img: act1.img,
+          detail: 'Bắt đầu buổi tối với ẩm thực ngon và không gian đẹp.'
+        });
+        totalMinutes += time1;
+
+        const act2 = pickUniqueByInterest(['lãng mạn', 'cafe', 'âm nhạc'], ['Lãng mạn', 'Cafe & chill', 'Âm nhạc']);
+        const time2 = Math.min(90, maxMinutes - totalMinutes);
+        activities.push({
+          step: 2,
+          title: 'Sau đó',
+          place: act2.name,
+          desc: act2.desc || 'Thư giãn, trò chuyện',
+          time: `${time2} phút`,
+          img: act2.img,
+          detail: 'Dành thời gian riêng tư, thư giãn và trò chuyện.'
+        });
+        summaryText = 'Thời lượng: Buổi tối — chú trọng ăn uống và không khí lãng mạn.';
+      }
+
+      // Enrich activities with extra details (price, menu, etc.)
+      activities.forEach(act => {
+        let foundPlace = null;
+        for (const cat in places) {
+          const match = places[cat].find(p => p.name === act.place);
+          if (match) { foundPlace = match; break; }
+        }
+        if (foundPlace) {
+          act.price = foundPlace.price;
+          act.menu = foundPlace.menu;
+          act.concept = foundPlace.concept;
+          act.style = foundPlace.style;
+        }
+      });
+
+      // Build HTML for activities
+      const output = document.getElementById('output');
+      output.innerHTML = '';
+
+      activities.forEach((act, idx) => {
+        const card = document.createElement('div');
+        card.className = 'plan-card';
+        card.onclick = () => openModal(idx);
+        card.innerHTML = `
+          <img src="${act.img}" alt="${act.place}" />
+          <div class="plan-card-content">
+            <h4>${act.step}) ${act.title}: ${act.place}</h4>
+            <p>${act.desc}</p>
+            <div style="font-size: 13px; color: #666; border-top: 1px dashed #eee; padding-top: 8px; margin-top: 8px; display: grid; gap: 4px;">
+               ${act.price ? `<div><strong>Giá:</strong> ${act.price}</div>` : ''}
+               ${act.concept ? `<div><strong>Concept:</strong> ${act.concept}</div>` : ''}
+               ${act.style ? `<div><strong>Style:</strong> ${act.style}</div>` : ''}
+            </div>
+            <span class="time-badge" style="margin-top:8px; display:inline-block">⏰ ${act.time}</span>
+          </div>
+        `;
+        output.appendChild(card);
+      });
+
+      // Build additional info strings
+      let vibeHint = '';
+      if (vibe === 'romantic') vibeHint = 'Chuẩn bị một lời chúc nhỏ hoặc một món quà nhỏ, chọn chỗ có view/ánh sáng dịu.';
+      if (vibe === 'adventure') vibeHint = 'Thêm hoạt động trải nghiệm như thuê xe đạp, escape room hoặc lớp học nấu ăn ngắn.';
+      if (vibe === 'foodie') vibeHint = 'Lên danh sách 2-3 quán để lựa chọn, ưu tiên quán có review tốt.';
+
+      let budgetHint = '';
+      if (budget === 'low') budgetHint = 'Tiết kiệm — ưu tiên street food, quán cà phê giá rẻ, dạo bộ nhiều hơn đi taxi.';
+      if (budget === 'medium') budgetHint = 'Trung bình — kết hợp quán đặc sản và một quán có không gian tốt.';
+      if (budget === 'high') budgetHint = 'Cao cấp — gợi ý nhà hàng rooftop, cocktail bar, hoặc trải nghiệm có phí.';
+
+      const checklist = 'Xác nhận giờ, mang điện thoại + sạc, trang phục phù hợp, áo khoác mỏng nếu cần.';
+      const advice = 'Nếu là dịp đặc biệt, đặt chỗ trước. Hỏi về dị ứng/ăn chay.';
+
+      // Build summary HTML for checking
+      let summaryHTML = `<div class="summary-card">
+        <h3>Tổng hợp kế hoạch hẹn hò</h3>
+        <p><strong>Cho:</strong> ${names}</p>
+        <p><strong>Thời gian:</strong> ${datetime}</p>
+        <p><strong>Thời lượng:</strong> ${summaryText.replace('Thời lượng: ', '')}</p>
+        <p><strong>Ghi chú:</strong> ${notes || 'Không có'}</p>`;
+
+      if (vibeHint) summaryHTML += `<p><strong>Gợi ý:</strong> ${vibeHint}</p>`;
+      if (budgetHint) summaryHTML += `<p><strong>Ngân sách:</strong> ${budgetHint}</p>`;
+
+      summaryHTML += `<p><strong>Checklist:</strong> ${checklist}</p>`;
+      summaryHTML += `<p><strong>Mẹo:</strong> ${advice}</p></div>`;
+
+      const summaryDiv = document.getElementById('summary');
+      summaryDiv.innerHTML = summaryHTML;
+      summaryDiv.style.display = 'block';
+
+      // Store plan text for copy
+      let planText = `Kế hoạch hẹn hò cho ${names}\nThời gian: ${datetime}\nGhi chú: ${notes || 'Không có'}\n---\n${summaryText}\n`;
+      if (vibeHint) planText += `\n${vibeHint}`;
+      if (budgetHint) planText += `\n${budgetHint}`;
+      planText += `\n${checklist}\n${advice}\n\nLỊCH TRÌNH CHI TIẾT:\n`;
+
+      let fullHtml = `<h1 style="color:#ff6b9d">Kế hoạch hẹn hò cho ${names}</h1>
+                      <p><strong>Thời gian:</strong> ${datetime}</p>
+                      <p><strong>Ghi chú:</strong> ${notes || 'Không có'}</p>
+                      <hr style="border:0; border-top:1px dashed #ffb3d1; margin: 20px 0;"/>
+                      <p><strong>Thời lượng:</strong> ${summaryText.replace('Thời lượng: ', '')}</p>`;
+      if (vibeHint) fullHtml += `<p><strong>Gợi ý:</strong> ${vibeHint}</p>`;
+      if (budgetHint) fullHtml += `<p><strong>Ngân sách:</strong> ${budgetHint}</p>`;
+      fullHtml += `<p><strong>Checklist:</strong> ${checklist}</p>`;
+      fullHtml += `<p><strong>Mẹo:</strong> ${advice}</p>
+                   <hr style="border:0; border-top:1px dashed #ffb3d1; margin: 20px 0;"/>`;
+
+      activities.forEach(act => {
+        planText += `${act.step}) ${act.title}: ${act.place}\n   - ${act.desc}\n`;
+        if (act.price) planText += `   - Giá: ${act.price}\n`;
+        if (act.concept) planText += `   - Concept: ${act.concept}\n`;
+        planText += `   - ${act.detail}\n   - Thời gian: ${act.time}\n\n`;
+
+        fullHtml += `<div class="plan-card">
+          <h3 style="color:#ff6b9d">${act.step}) ${act.title}: ${act.place}</h3>
+          <p><strong>Mô tả:</strong> ${act.desc}</p>
+          ${act.price ? `<p><strong>Giá:</strong> ${act.price}</p>` : ''}
+          ${act.concept ? `<p><strong>Concept:</strong> ${act.concept}</p>` : ''}
+          ${act.style ? `<p><strong>Style:</strong> ${act.style}</p>` : ''}
+          <p><strong>Chi tiết:</strong> ${act.detail}</p>
+          <p><strong>Thời gian:</strong> ${act.time}</p>
+        </div>`;
+      });
+
+      output.dataset.planText = planText;
+      output.dataset.fullHtml = fullHtml;
+
+      // Auto scroll to results
+      const previewSection = document.getElementById('preview');
+      if (previewSection) {
+        const yOffset = -200;
+        const y = previewSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+
+      // Auto open first activity
+      if (currentActivities.length > 0) {
+        setTimeout(() => openModal(0), 600);
+      }
+    }
+
+    let currentModalIndex = -1;
+
+    function openModal(index) {
+      if (index < 0 || index >= currentActivities.length) return;
+      currentModalIndex = index;
+      const activity = currentActivities[index];
+
+      const modal = document.getElementById('modal');
+      const modalBody = document.getElementById('modal-body');
+
+      // Update arrows
+      const prevBtn = modal.querySelector('.nav-arrow.prev');
+      const nextBtn = modal.querySelector('.nav-arrow.next');
+
+      if (prevBtn) prevBtn.style.display = index > 0 ? 'flex' : 'none';
+      if (nextBtn) nextBtn.style.display = index < currentActivities.length - 1 ? 'flex' : 'none';
+
+      // Bottom navigation buttons
+      let navButtons = '<div class="modal-nav">';
+
+      // Previous button
+      if (index > 0) {
+        navButtons += `<button class="btn secondary" onclick="navigateModal(-1)">⬅ Quay lại</button>`;
+      } else {
+        navButtons += `<div></div>`; // Spacer
+      }
+
+      // Next button
+      if (index < currentActivities.length - 1) {
+        navButtons += `<button class="btn" onclick="navigateModal(1)">Hoạt động tiếp theo ➡</button>`;
+      } else {
+        navButtons += `<div></div>`; // Spacer
+      }
+      navButtons += '</div>';
+
+      modalBody.innerHTML = `
+        <img src="${activity.img}" alt="${activity.place}" />
+        <h2 style="color:var(--accent);margin:0 0 12px 0">${activity.step}) ${activity.title}</h2>
+        <h3 style="margin:0 0 8px 0;color:#333">${activity.place}</h3>
+        <p style="color:#666;margin:8px 0">${activity.desc}</p>
+        <div style="background:#fff9fb; padding:12px; border-radius:8px; border:1px dashed #ffb3d1; margin: 12px 0; font-size: 14px;">
+           ${activity.price ? `<p style="margin:4px 0"><strong>💰 Giá:</strong> ${activity.price}</p>` : ''}
+           ${activity.concept ? `<p style="margin:4px 0"><strong>✨ Concept:</strong> ${activity.concept}</p>` : ''}
+           ${activity.style ? `<p style="margin:4px 0"><strong>🎨 Style:</strong> ${activity.style}</p>` : ''}
+           ${activity.menu ? `<p style="margin:4px 0"><strong>🍽 Menu:</strong> ${activity.menu}</p>` : ''}
+           <p style="margin:4px 0"><strong>⏰ Thời gian:</strong> ${activity.time}</p>
+        </div>
+        <p style="color:#555;margin:12px 0;line-height:1.6"><strong>Chi tiết:</strong> ${activity.detail}</p>
+        ${navButtons}
+      `;
+      modal.classList.add('active');
+    }
+
+    function navigateModal(step) {
+      const newIndex = currentModalIndex + step;
+      if (newIndex >= 0 && newIndex < currentActivities.length) {
+        openModal(newIndex);
+      }
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.remove('active');
+    }
+
+    document.getElementById('modal').addEventListener('click', function (e) {
+      if (e.target === this) closeModal();
+    });
+
+    function copyPlan() {
+      const output = document.getElementById('output');
+      const planText = output.dataset.planText || output.textContent || output.innerText;
+      navigator.clipboard.writeText(planText).then(() => alert('Đã sao chép kế hoạch vào bộ nhớ tạm.'), () => alert('Không thể sao chép — vui lòng sao chép thủ công.'));
+    }
+
+    function downloadDoc() {
+      const output = document.getElementById('output');
+      const docContent = output.dataset.fullHtml;
+
+      const preHtml = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+      <head>
+        <meta charset='utf-8'>
+        <title>Kế hoạch hẹn hò</title>
+        <style>
+          body {
+            font-family: 'Times New Roman', serif;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+          }
+          h1 {
+            font-family: 'Times New Roman', serif;
+            color: #ff6b9d;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 24px;
+          }
+          h3 {
+            font-family: 'Times New Roman', serif;
+            color: #ff6b9d;
+            font-size: 24px;
+            margin-top: 24px;
+            margin-bottom: 12px;
+          }
+          .plan-card {
+            border: 1px solid #ffeef5;
+            background: #fff9fb;
+            padding: 16px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+          }
+          strong {
+            color: #a8556f;
+          }
+          p {
+            margin: 8px 0;
+          }
+        </style>
+      </head>
+      <body>`;
+      const postHtml = "</body></html>";
+      const html = preHtml + docContent + postHtml;
+
+      const blob = new Blob(['\ufeff', html], {
+        type: 'application/msword'
+      });
+
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'ke_hoach_hen_ho.doc';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    // Render all locations on load
+    // Render filter buttons
+    function renderLocationFilters() {
+      const container = document.getElementById('location-filters');
+      const categories = ['Tất cả', ...Object.keys(places)];
+
+      container.innerHTML = '';
+      categories.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = 'btn secondary';
+        btn.style.margin = '0';
+        btn.innerText = cat;
+        if (cat === 'Tất cả') {
+          btn.classList.remove('secondary'); // Active state logic
+        }
+
+        btn.onclick = () => {
+          // Update visual state
+          Array.from(container.children).forEach(b => b.classList.add('secondary'));
+          btn.classList.remove('secondary');
+
+          // Filter content
+          renderAllLocations(cat === 'Tất cả' ? null : cat);
+        };
+        container.appendChild(btn);
+      });
+    }
+
+    // Render all locations with optional filter
+    function renderAllLocations(filterCategory = null) {
+      const container = document.getElementById('all-locations-container');
+      let html = '';
+
+      const entries = filterCategory
+        ? Object.entries(places).filter(([cat]) => cat === filterCategory)
+        : Object.entries(places);
+
+      if (entries.length === 0) {
+        container.innerHTML = '<p style="text-align:center;width:100%;color:var(--text-light)">Không tìm thấy địa điểm.</p>';
+        return;
+      }
+
+      for (const [category, spotList] of entries) {
+        html += `<div class="category-group" style="margin-bottom: 40px; animation: fadeIn 0.5s;">
+          <h3 style="color: var(--muted); border-bottom: 2px solid var(--border); padding-bottom: 10px; margin-bottom: 20px;">
+            ${category}
+          </h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">`;
+
+        spotList.forEach(spot => {
+          html += `
+            <div class="plan-card" style="margin-bottom: 0; display:flex; flex-direction:column;">
+              <div style="position:relative">
+                <img src="${spot.img}" alt="${spot.name}" style="height: 180px;">
+                ${spot.price ? `<span style="position:absolute; bottom:10px; right:10px; background:rgba(0,0,0,0.7); color:#fff; padding:4px 8px; border-radius:8px; font-size:12px; font-weight:600;">${spot.price}</span>` : ''}
+              </div>
+              <div class="plan-card-content" style="flex:1; display:flex; flex-direction:column;">
+                <h4 style="font-size: 16px; margin-bottom:4px;">${spot.name}</h4>
+                <p style="font-size: 13px; color:#666; margin-bottom: 8px; flex:1;">${spot.desc}</p>
+                
+                <div style="font-size: 12px; color: #888; border-top: 1px dashed #eee; padding-top: 8px; margin-top: auto;">
+                  ${spot.concept ? `<div style="margin-bottom:2px"><strong>Concept:</strong> ${spot.concept}</div>` : ''}
+                  ${spot.style ? `<div style="margin-bottom:2px"><strong>Style:</strong> ${spot.style}</div>` : ''}
+                  ${spot.menu ? `<div><strong>Menu:</strong> ${spot.menu}</div>` : ''}
+                </div>
+              </div>
+            </div>
+          `;
+        });
+
+        html += `</div></div>`;
+      }
+
+      container.innerHTML = html;
+    }
+
+    renderLocationFilters();
+    renderAllLocations();
+
+    // Floating Feedback Widget Logic
+    function scrollToFeedback() {
+      const feedbackSection = document.getElementById('feedback-section-static');
+      if (feedbackSection) {
+        // Scroll to element with offset for fixed header
+        const yOffset = -200; // Offset to ensure title is visible under header
+        const y = feedbackSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
+
+    // Handle Feedback
+    // Handle Feedback
+    function handleFeedback(e) {
+      e.preventDefault();
+      const form = e.target;
+      const name = form.querySelector('[name="fb-name"]').value;
+      const idea = form.querySelector('[name="fb-idea"]').value;
+
+      // Simulate submission
+      const btn = form.querySelector('button');
+      const originalText = btn.innerText;
+      btn.innerText = 'Đang gửi...';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        alert(`Cảm ơn ${name || 'bạn'} đã đóng góp ý tưởng!\nChúng mình sẽ sớm xem xét "${idea}" để thêm vào danh sách.`);
+        e.target.reset();
+        btn.innerText = originalText;
+        btn.disabled = false;
+        // toggleFeedback(); // No longer needed
+      }, 1000);
+    }
+  </script>
+
+  <!-- Fixed Floating Feedback Widget (Bottom Right) -->
+  <div id="feedback-wrapper"
+    style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; font-family: var(--font-body);">
+
+    <!-- Scroll Button -->
+    <button id="feedback-toggle-btn" onclick="scrollToFeedback()" style="
+        background: var(--accent); 
+        color: white; 
+        border: none; 
+        padding: 12px 20px; 
+        border-radius: 30px; 
+        font-weight: 600; 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+        cursor: pointer; 
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 16px;
+      ">
+      💌 Góp ý
+    </button>
+
+    <style>
+      #feedback-toggle-btn:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </div>
+</body>
+
+</html>
